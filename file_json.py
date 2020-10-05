@@ -3,7 +3,7 @@ import json
 import os
 
 
-def sorted_list_word(description, len_word):
+def list_word(description, len_word):
     words = []
     for word in description:
         if len(word) > len_word:
@@ -22,8 +22,7 @@ def json_import(path, len_word):
     items = data["rss"]["channel"]["items"]
     for item in items:
         description = item["description"].split()
-        all_words.extend(sorted_list_word(description, len_word))
-    all_words.sort()
+        all_words.extend(list_word(description, len_word))
     return all_words
 
 
